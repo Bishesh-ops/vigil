@@ -26,3 +26,4 @@ vigil-ebpf = { path = "../vigil-ebpf" }
 [[bin]]
 name = "vigil"
 path = "src/main.rs"
+

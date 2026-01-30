@@ -35,3 +35,8 @@ which = "6.0"
 [profile.release.package.vigil-ebpf]
 debug = 2
 codegen-units = 1
+
+[patch.crates-io]
+aya = { git = "https://github.com/aya-rs/aya", branch = "main" }
+aya-log = { git = "https://github.com/aya-rs/aya", branch = "main" }
+aya-ebpf = { git = "https://github.com/aya-rs/aya", branch = "main" }
