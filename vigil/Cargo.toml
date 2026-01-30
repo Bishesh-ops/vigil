@@ -1,0 +1,28 @@
+[package]
+name = "vigil"
+version = "0.1.0"
+edition.workspace = true
+publish = false
+
+[dependencies]
+# We use workspace, but we explicitly ask for "async"
+aya = { workspace = true, features = ["async"] }
+aya-log = { workspace = true }
+vigil-common = { path = "../vigil-common", features = ["user"] }
+
+# Standard tools
+tokio = { workspace = true }
+clap = { workspace = true }
+env_logger = { workspace = true }
+log = { workspace = true }
+anyhow = { workspace = true }
+bytes = "1"
+
+[build-dependencies]
+anyhow = { workspace = true }
+aya-build = { workspace = true }
+vigil-ebpf = { path = "../vigil-ebpf" }
+
+[[bin]]
+name = "vigil"
+path = "src/main.rs"

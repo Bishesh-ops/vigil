@@ -1,0 +1,37 @@
+[workspace]
+resolver = "2"
+members = [
+    "vigil",
+    "vigil-common",
+    "vigil-ebpf",
+]
+default-members = ["vigil", "vigil-common"]
+
+[workspace.package]
+license = "MIT OR Apache-2.0"
+edition = "2021"
+
+[workspace.dependencies]
+# FIX 1: Enable 'async' feature here so the User App can use it
+aya = { git = "https://github.com/aya-rs/aya", features = ["async"] }
+aya-build = { git = "https://github.com/aya-rs/aya" }
+aya-ebpf = { git = "https://github.com/aya-rs/aya" }
+aya-log = { git = "https://github.com/aya-rs/aya" }
+aya-log-ebpf = { git = "https://github.com/aya-rs/aya" }
+
+# FIX 2: Enable 'full' features for Tokio (needed for async runtime)
+tokio = { version = "1.40.0", features = ["full"] }
+
+# FIX 3: Enable 'derive' for Clap (needed for command line parsing)
+clap = { version = "4.5.20", features = ["derive"] }
+
+anyhow = "1"
+cargo_metadata = "0.15"
+env_logger = "0.11"
+libc = "0.2"
+log = "0.4"
+which = "6.0"
+
+[profile.release.package.vigil-ebpf]
+debug = 2
+codegen-units = 1

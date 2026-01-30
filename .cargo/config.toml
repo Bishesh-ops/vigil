@@ -1,0 +1,6 @@
+[target."cfg(all())"]
+runner = "sudo -E"
+
+[build]
+rustflags = ["-C", "link-arg=-lelf", "-C", "link-arg=-lz"]
+
